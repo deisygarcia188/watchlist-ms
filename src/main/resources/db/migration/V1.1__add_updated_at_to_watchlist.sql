@@ -1,0 +1,1 @@
+ALTER TABLE tb_watchlist ADD updated_at timestamp;
