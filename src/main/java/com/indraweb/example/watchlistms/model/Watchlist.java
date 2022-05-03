@@ -12,11 +12,17 @@ public class Watchlist implements Serializable {
     @Column(name = "id_watchlist")
     private Long id_watchlist;
 
-    @Column(name = "id_user")
-    private Long id_user;
+    @Column(name = "id_usuario")
+    private int id_usuario;
 
-    @Column(name = "name_watchlist")
-    private String name_watchlist;
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @Column(name = "privacidad")
+    private Boolean privacidad ;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -24,14 +30,17 @@ public class Watchlist implements Serializable {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    public Watchlist(Long id_watchlist, Long id_user, String name_watchlist, Date createdAt) {
-        this.id_watchlist = id_watchlist;
-        this.id_user = id_user;
-        this.name_watchlist = name_watchlist;
-        this.createdAt = createdAt;
+    public Watchlist() {
     }
 
-    public Watchlist() {
+    public Watchlist(Long id_watchlist, int id_usuario, String nombre, String descripcion, Boolean privacidad, Date createdAt, Date updatedAt) {
+        this.id_watchlist = id_watchlist;
+        this.id_usuario = id_usuario;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.privacidad = privacidad;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Long getId_watchlist() {
@@ -42,20 +51,36 @@ public class Watchlist implements Serializable {
         this.id_watchlist = id_watchlist;
     }
 
-    public Long getId_user() {
-        return id_user;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId_user(Long id_user) {
-        this.id_user = id_user;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public String getName_watchlist() {
-        return name_watchlist;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName_watchlist(String name_watchlist) {
-        this.name_watchlist = name_watchlist;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Boolean getPrivacidad() {
+        return privacidad;
+    }
+
+    public void setPrivacidad(Boolean privacidad) {
+        this.privacidad = privacidad;
     }
 
     public Date getCreatedAt() {

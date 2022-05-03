@@ -25,12 +25,22 @@ public class WatchlistController {
     }
 
     /**
-     *   GET /watchlist?id={{id}},
-     * @param id_watchlist
+     *   GET /watchlist?nombre={{nombre}},
+     * @param nombre
      * @return
      */
     @GetMapping
-    public List<Watchlist> getWatchlistById(@RequestParam(name = "id_watchlist") Long id_watchlist) {
-        return watchlistService.getById_watchlist(id_watchlist);
+    public List<Watchlist> getWatchlistByNombre(@RequestParam(name = "nombre") String nombre) {
+        return watchlistService.getByNombre(nombre);
+    }
+
+    /**
+     * GET /,
+     * @param
+     * @return
+     */
+    @GetMapping("/")
+    public List<Watchlist> getAllWatchlist() {
+       return watchlistService.getWatchlist();
     }
 }

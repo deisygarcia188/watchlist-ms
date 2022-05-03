@@ -19,8 +19,8 @@ public class WatchlistService {
      */
     public void createWatchlist(Watchlist watchlist) {
 
-        List<Watchlist> watchlistByName = watchlistRepository.findByName_watchlist(watchlist.getName_watchlist());
-        if (!watchlistByName.isEmpty()) {
+        List<Watchlist> watchlistByNombre = watchlistRepository.findByNombre(watchlist.getNombre());
+        if (!watchlistByNombre.isEmpty()) {
             throw new RuntimeException("watchlist with that name already exists");
         }
 
@@ -28,12 +28,21 @@ public class WatchlistService {
     }
 
     /**
-     * get watchlist by id
-     * @param id_watchlist
+     * get watchlist by nombre
+     * @param nombre
      * @return list of watchlist
      */
-    public List<Watchlist> getById_watchlist(Long id_watchlist) {
-        return watchlistRepository.findById_watchlist(id_watchlist);
+    public List<Watchlist> getByNombre(String nombre) {
+        return watchlistRepository.findByNombre(nombre);
+    }
+
+    /**
+     * get watchlist
+     * @param
+     * @return list of watchlist
+     */
+    public List<Watchlist> getWatchlist() {
+        return watchlistRepository.findAll();
     }
 
 }
