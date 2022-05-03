@@ -9,8 +9,8 @@ import java.util.Date;
 public class Watchlist implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_watchlist")
-    private Long id_watchlist;
+    @Column(name = "idWatchlist")
+    private Long idWatchlist;
 
     @Column(name = "id_usuario")
     private int id_usuario;
@@ -33,8 +33,8 @@ public class Watchlist implements Serializable {
     public Watchlist() {
     }
 
-    public Watchlist(Long id_watchlist, int id_usuario, String nombre, String descripcion, Boolean privacidad, Date createdAt, Date updatedAt) {
-        this.id_watchlist = id_watchlist;
+    public Watchlist(Long idWatchlist, int id_usuario, String nombre, String descripcion, Boolean privacidad, Date createdAt, Date updatedAt) {
+        this.idWatchlist = idWatchlist;
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -43,12 +43,12 @@ public class Watchlist implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Long getId_watchlist() {
-        return id_watchlist;
+    public Long getIdWatchlist() {
+        return idWatchlist;
     }
 
-    public void setId_watchlist(Long id_watchlist) {
-        this.id_watchlist = id_watchlist;
+    public void setIdWatchlist(Long idWatchlist) {
+        this.idWatchlist = idWatchlist;
     }
 
     public int getId_usuario() {

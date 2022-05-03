@@ -14,7 +14,7 @@ public class WatchlistService {
 
     /**
      * Create Watchlist
-     * no dWatchlist with repeated name.
+     * no Watchlist with repeated name.
      * @param watchlist
      */
     public void createWatchlist(Watchlist watchlist) {
@@ -28,21 +28,51 @@ public class WatchlistService {
     }
 
     /**
-     * get watchlist by nombre
+     * capturar por nombre watchlist
      * @param nombre
-     * @return list of watchlist
+     * @return lista de watchlist
      */
     public List<Watchlist> getByNombre(String nombre) {
         return watchlistRepository.findByNombre(nombre);
     }
 
     /**
-     * get watchlist
+     * captura lista de watchlist
      * @param
-     * @return list of watchlist
+     * @return lista de watchlist
      */
     public List<Watchlist> getWatchlist() {
         return watchlistRepository.findAll();
     }
+
+    /**
+     * actualizar watchlist
+     * @param putWatchlist
+     */
+    public void putWatchlist(Long idWatchlist, Watchlist putWatchlist) {
+
+        Watchlist watchlistById = watchlistRepository.findByIdWatchlist(idWatchlist);
+        watchlistById.setDescripcion(putWatchlist.getDescripcion());
+        watchlistById.setId_usuario(putWatchlist.getId_usuario());
+        watchlistById.setPrivacidad(putWatchlist.getPrivacidad());
+        watchlistById.setNombre(putWatchlist.getNombre());
+        watchlistRepository.save(watchlistById);
+    }
+
+    /**
+     * eliminar Watchlist
+     * @param idWatchlist
+     */
+    public boolean deleteWatchlist(Long idWatchlist) {
+
+        try{
+            watchlistRepository.deleteById(idWatchlist);
+            return true;
+        }catch(Exception e){
+            return false;
+
+        }
+    }
+
 
 }
